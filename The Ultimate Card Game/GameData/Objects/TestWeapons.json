@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Stick of Time",
+    "rarity": "Legendary",
+    "type": "Weapon",
+    "attributes": {
+      "Cost": 150,
+      "DamageMinMax": [
+        7,
+        14
+      ],
+      "CriticalHitDamage": 35,
+      "CriticalHitRarity": 0.1,
+      "AttackDebufs": {
+        "Bleed": {
+          "name": "Bleed Damage",
+          "DamagePerTurn": 5,
+          "TimeToLast": [ 2, 8 ],
+          "Chance": 0.2
+        }
+      },
+      "HitSounds": [
+        "Beat",
+        "Punt",
+        "Slap"
+      ]
+    }
+  }
+]

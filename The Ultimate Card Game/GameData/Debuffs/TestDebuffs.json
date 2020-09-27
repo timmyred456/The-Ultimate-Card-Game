@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Slime",
+    "attributes": {
+      "DamagePerTurn": [ true, [3, 5] ],
+      "ReducesAttack": [ true, [4, 7] ],
+      "ReducesDefence": [ false ],
+      "AttackerIncreese": [ false ],
+      "DamageOnInflicted": [ true, 25 ],
+      "DebuffText": "The {name} makes it hard to move!, it reduced your damage by {DamagePerTurn}"
+    }
+  }
+]

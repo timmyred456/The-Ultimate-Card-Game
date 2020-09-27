@@ -1,0 +1,24 @@
+[
+  {
+    "name": "Angry Slimeball",
+    "rarity": "Common",
+    "type": "Enemy",
+    "attributes": {
+      "health": 100,
+      "MissChance": 0.8,
+      "DamageMinMax": [
+        1,
+        3
+      ],
+      "CriticalHitDamage": 5,
+      "CriticalHitRarity": 0.4,
+      "AttackDebuffs": [
+        "Slime"
+      ]
+      },
+      "HitSounds": [
+        "Hits You!",
+        "Globs You!"
+      ]
+  }
+]
