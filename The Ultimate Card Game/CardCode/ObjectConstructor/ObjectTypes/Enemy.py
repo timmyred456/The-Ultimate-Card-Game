@@ -6,7 +6,7 @@ class EnemyObject():
         self.rarity = rarity
         self.attributes = attributes
         self.health = attributes["health"]
-
+        self.Type = "Enemy"
     def CreateNew(self):
         return [self.name,EnemyObject(self.name,self.rarity,self.attributes)]
 

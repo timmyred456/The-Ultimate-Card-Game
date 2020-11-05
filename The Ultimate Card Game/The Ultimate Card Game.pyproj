@@ -59,7 +59,7 @@
     <Compile Include="CardCode\SoundManagment\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CardCode\TextManagment\FightGUI.py">
+    <Compile Include="CardCode\TextManagment\jsonRead.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CardCode\TextManagment\SlowType.py">

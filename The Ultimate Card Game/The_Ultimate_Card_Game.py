@@ -1,58 +1,47 @@
 import os
 from CardCode import *
 from colorama import Fore, Back, Style, init
-
-weaponIDs = LoadAllItemsInFile("TestWeapons.json")
 init()
 
+#Sorry if something is broken, i have no idea if this runs on linux operating systems, so im
+#trying my best to use libarys that work for win and linux.
+#And if i cant find them i just make them myself, with a even higher chance to not work lmao
+
+GameDataDir = os.path.join(os.getcwd(),"GameData")
+DebuffsDir = os.path.join(GameDataDir,"Debuffs")
+ObjectsDir = os.path.join(GameDataDir,"Objects")
+
+WeaponIDs = LoadAllObjectsInDir(ObjectsDir,"Weapon")
+EnemyIDs = LoadAllObjectsInDir(ObjectsDir,"Enemy")
+
 def cls(): ##https://stackoverflow.com/questions/517970/how-to-clear-the-interpreter-console
-    os.system('cls' if os.name=='nt' else 'clear')
+    os.system('cls' if os.name=='nt' else 'clear') #No idea you could nest "if" functions like this
+    #Starting to think i should spend an hour or two reading all of the python documents,
+    #cause the deeper and deeper i go the more i realise i have no idea what some functions can do.
     
 gearSlots = { #Slots for gear, under construction
     "head":None,
     "body":None,
     "legs":None,
-    "Weapon":None,
-    "Gear":None
+    "weapon":None,
+    "gear":None
 }
 
 PlayerInv = InventoryObject(MaxSlots=15) # Make Player Inv
 PlayerHealth = 100
-gearSlots["Weapon"] = weaponIDs[0][1].CreateNew() #Sets player weapon to the first weapon in TestWeapons.json
 
+PlayerInv.addItem(WeaponIDs["Stick of Time"])
 
+gearSlots["Weapon"] = WeaponIDs["Stick of Time"] # New Method
 
-def CheckBetween(String,Seperators):
-    ExtractedString = ""
-    ExtractedData = []
-    StringSplit = list(String)
-    Nested = False
+#getattr(class,FunctionName) ~ Returns true or false if class has function
 
-    for char in range(len(StringSplit)):
-        if StringSplit[char] == Seperators[0]:
-            Nested = True
-        elif StringSplit[char] == Seperators[1]:
-            Nested = False
-            ExtractedData.append(ExtractedString)
-            ExtractedString = ""
-        elif Nested == True:
-            ExtractedString += StringSplit[char]
-
-    return ExtractedData
-
-
-
-TestString = "Oh no random shit o--ee aghfdjgh {ImportantData} Oh no im dying oh Bleg ah dam{MoreData}"
-print(CheckBetween(TestString,("{","}")))
-
-
-
-while True:
-    Input = input("Command:")
-    if(Input == "Open Inv" or Input == "Open Inventory" or Input == "Inv" or Input == "Open Inventory"):
+while __name__ == "__main__":
+    Input = input("Action:")
+    if(Input.lower() == "inv"):
         print(ReadItems(PlayerInv))
 
-    if(Input == "Fight" or Input == "fight"):
+    if(Input.lower() == "fight"):
         Panel = textPanel(20,10)
         PlayerHP = textObject("Player HP:" + str(PlayerHealth),1,3)
         EnemyHP = textObject("Enemy HP:" + str(PlayerHealth),3,3)

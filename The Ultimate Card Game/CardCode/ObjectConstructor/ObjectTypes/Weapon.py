@@ -5,6 +5,7 @@ class WeaponObject():
         self.name = name
         self.rarity = rarity
         self.attributes = attributes
+        self.Type = "Weapon"
     def CreateNew(self):
         return [self.name,WeaponObject(self.name,self.rarity,self.attributes)]
     def GetAttack(self):
